@@ -15,9 +15,7 @@ router.post('/', async (req, res, err) => {
     try {
         const { title, availableConsole, price } = req.body;
         const imagePath = '/uploads/' + req.file.filename;
-        console.log(req.file, req.body)
         const newGame = new Game({title, availableConsole, price, imagePath});
-        console.log(newGame)
         await newGame.save();
         res.json({'message': 'Game Saved'});
     }catch(err) {

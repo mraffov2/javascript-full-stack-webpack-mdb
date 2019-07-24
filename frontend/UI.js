@@ -11,26 +11,27 @@ class UI {
 		gameCardContainer.innerHTML = '';
 		games.forEach((game) =>{
 			const div = document.createElement('div');
-			div.className = 'animated fadeInRigth';
+			div.className = 'col-10 col-sm-10 col-lg-5 col-xl-6  mt-4';
 			div.innerHTML= `
-				<div class="row">
-					<div class="col-md-4">
-						<div class="card card-cascade wider">
+	
+						<div class="card card-cascade wider view overlay zoom">
 							<div class="view view-cascade overlay">
-								<img src="${game.imagePath}" class="card-img-top img-fluid" alt="">
-							</div
-							<div class="card-body card-body-cascade text-center"
-								<h4 class="card-title"><s${game.title}</strong></h4>
+								<img class="card-img-top img-fluid h-75" src="http://localhost:4000${game.imagePath}"  alt="Card image cap">
+								<a href="#!">
+							      <div class="mask rgba-white-slight"></div>
+							    </a>
+							</div>
+							<div class="card-body card-body-cascade text-center">
+								<h4 class="card-title"><strong>${game.title}</strong></h4>
 								<h5 class="blue-text pb-2"><strong>${game.availableConsole}</strong></h5>
-								<h6 class="font-weight-bold indigo-text py-2">$ ${game.price}</h6>
-								<button type="button" class="btn btn-danger btn-rounded" _id="${game._id}">Delete</button>
+								<h6 class="font-weight-bold indigo-text py-2">$${game.price}</h6>
+								<button type="button" class="btn btn-danger btn-rounded delete" _id="${game._id}">Delete</button>
+								<div class="card-footer text-muted text-center mt-4">
+						      		${format(game.created_at)}
+						    	</div>
 		  					</div>
-						</div>
-						<div class="card-footer text-muted text-center mt-4">
-					      ${format(game.created_at)}
-					    </div>
-					</div>
-				</div>
+						</div>			
+					
 			`;
 			gameCardContainer.appendChild(div);
 		});
@@ -42,7 +43,7 @@ class UI {
 		this.clearGameForm();
 	}
 
-	clearBookForm() {
+	clearGameForm() {
 		document.getElementById('game-form').reset();
 		document.getElementById('title').focus()
 	}
@@ -54,8 +55,8 @@ class UI {
 
 		div.appendChild(document.createTextNode(message));
 
-		const container = document.querySelector('.col-md-4');
-		const gameForm = document.querySelector('#game-form');
+		const container = document.querySelector('.selector');
+		const gameForm = document.querySelector('#top-card');
 		container.insertBefore(div, gameForm);
 
 		setTimeout(() => {
@@ -64,7 +65,7 @@ class UI {
 	}
 
 	async deleteGame(gameId) {
-		await gameService.deleteGame(bookId);
+		await gameService.deleteGame(gameId);
 		this.renderGames();
 	}
 }

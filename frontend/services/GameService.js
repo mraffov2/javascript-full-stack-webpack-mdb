@@ -14,11 +14,10 @@ class GameService {
 
     async postGame(game) {
         const res = await fetch(this.URI, {
+            mode: 'cors',
             method: 'POST',
             body: game,
-            headers:{
-                'Content-Type': 'application/json'
-            }
+            
         });
         const data = await res.json();
     }

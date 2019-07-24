@@ -1,90 +1,93 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Webpack</title>
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css">
-	 <!-- Material Design Bootstrap -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.5/css/mdb.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
- 
-</head>
-<body>
-	<nav class="navbar navbar-dark bg-dark">
-	    <div class="container">
-	      <a class="navbar-brand" href="/">Webpack Games</a>
-	    </div>
-  	</nav>
-  	<div class="container mb-4" id="app">
-  		<div class="row">
-  			<div class="col-md-4">
-  				<div class="card mt-4">
-  					<h5 class="card-header text-center py-4">
-  						<strong>Add new game</strong>
-  					</h5>
-  					<div class="card-body">
-  						<form class=" text-center " id="game-form">
-  							<div class="col">
-                    		<!-- Tittle game -->
-			                    <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Title game</label>
-            					<input type="text" id="title" class="form-control" required>
-		                	</div>
-		                	<div class="col mt-4">
-                    		<!-- Available consoles -->
-			                    <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Available consoles</label>
-            					<input type="text" id="availableConsole" class="form-control" required>
-		                	</div>
-		                	<div class="col mt-4">
-                    		<!-- Price -->
-                    			<label for="defaultFormCardNameEx" class="grey-text font-weight-light">Price</label>
-			                    <div class="input-group">
-							        <div class="input-group-prepend">
-							          <span class="input-group-text" id="inputGroupPrepend">$</span>
-							        </div>
-							        <input type="text" class="form-control"
-							          aria-describedby="inputGroupPrepend" required id="price">
-							      </div>
-		                	</div>
-		                	<div class="">
-		               			<!--upload-->
-							  	<div class="custom-file mt-4 mb-4">
-									  <input type="file" class="custom-file-input" id="image" required>
-									  <label class="custom-file-label text-left">Select file</label>
-								</div>
-							</div>
-							<div class="col mt-4">
-								<!-- Send button -->
-            					<button class="btn btn-dark btn-rounded btn-block z-depth-0 my-4 waves-effect form-control" type="submit">Send</button>
-							</div>
-  						</form>
-  					</div>
-  				</div>
-  			</div>
-  		</div>
-  	</div>
+    <head>
+    	<title>Webpack</title>
+    	<!-- Font Awesome -->
+    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    	<!-- Bootstrap core CSS -->
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css" rel="stylesheet">
+    	 <!-- Material Design Bootstrap -->
+    	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> 
+    </head>
 
-  	<!-- Section game-cards -->
-  	<div class="col-md-8" id="games-cards"></div>
+    <body>
+    	<nav class="navbar navbar-dark bg-dark" id="navbar-top">
+    	    <div class="container">
+    	      <a class="navbar-brand" href="/">Webpack Games</a>
+    	    </div>
+      	</nav>
 
-  	<!-- Footer -->
-<footer class="page-footer font-small elegant-color">
+      	<div class="container mb-4" id="app">
+            <a href="#navbar-top" class="float">
+                <i class="fa fa-chevron-up my-float"></i>
+            </a>
+      		<div class="row justify-content-center">
+      			<div class="col-10 col-sm-10 col-lg-4  selector">
+      				<div class="card mt-4" id="top-card">
+      					<h5 class="card-header text-center py-4">
+      						<strong>Add new game</strong>
+      					</h5>
+      					<div class="card-body">
+      						<form class=" text-center " id="game-form">
+      							<div class="col">
+                        		<!-- Tittle game -->
+    			                    <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Title game</label>
+                					<input type="text" id="title" class="form-control" >
+    		                	</div>
+    		                	<div class="col mt-4">
+                        		<!-- Available consoles -->
+    			                    <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Available consoles</label>
+                					<input type="text" id="availableConsole" class="form-control" >
+    		                	</div>
+    		                	<div class="col mt-4">
+                        		    <!-- Price -->
+                        			<label for="defaultFormCardNameEx" class="grey-text font-weight-light">Price</label>
+    			                    <div class="input-group">
+    							        <div class="input-group-prepend">
+    							          <span class="input-group-text" id="inputGroupPrepend">$</span>
+    							        </div>
+    							        <input type="text" class="form-control"
+    							          aria-describedby="inputGroupPrepend"  id="price">
+    							    </div>
+    		                	</div>
+    		                	<div class="col">
+    		               			<!--upload-->
+    							  	<div class="custom-file mt-4 mb-4">
+    							         <input type="file" class="custom-file-input" id="image" >
+    							         <label class="custom-file-label text-left">Select file</label>
+    								</div>
+    							</div>
+    							<div class="col mt-4">
+    								<!-- Send button -->
+            					   <button class="btn btn-dark btn-rounded btn-block z-depth-0 my-4 waves-effect form-control" type="submit" id="buttonSend">Send</button>
+    							</div>
+      						</form>
+      					</div>
+      				</div>
+      			</div>
+      			<!-- Section game-cards -->
+      			<div class="col-10 col-sm-10 col-lg-8" >
+      				<div class="row justify-content-center" id="games-cards"></div>
+      			</div>
+      		</div>
+      	</div>
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">Created by:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> Mario Villegas</a>
-  </div>
-  <!-- Copyright -->
+      	<!-- Footer -->
+        <footer class="page-footer font-small elegant-color"><!-- Copyright -->
+          <div class="footer-copyright text-center py-3">Created by:
+            <a href="#"> Mario Villegas</a>
+          </div>
+          <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
 
-</footer>
-<!-- Footer -->
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.5/js/mdb.min.js"></script>
-</body>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/js/mdb.min.js"></script>
+    </body>
 </html>
