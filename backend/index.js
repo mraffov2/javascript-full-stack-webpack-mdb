@@ -23,7 +23,13 @@ const storage = multer.diskStorage({
     },
     filename: function(req, file, cb) {
         cb(null, new Date().getTime() + path.extname(file.originalname));
+    },
+    fileFilter: function (req, file, cb) {
+    if (path.extname(file.originalname) !== '.jpg' || path.extname(file.originalname) !== '.jpeg' || path.extname(file.originalname) !== '.png') {
+      return cb(new Error('Only jpg, jpeg and png are allowed'))
     }
+    cb(null, true)
+  }
 })
 
 

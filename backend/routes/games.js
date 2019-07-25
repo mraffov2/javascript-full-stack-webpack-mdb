@@ -20,6 +20,7 @@ router.post('/', async (req, res, err) => {
         res.json({'message': 'Game Saved'});
     }catch(err) {
         console.log(err)
+        res.status(404).json({'message': err});
     }
 });
 

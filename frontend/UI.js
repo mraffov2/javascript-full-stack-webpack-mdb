@@ -11,7 +11,7 @@ class UI {
 		gameCardContainer.innerHTML = '';
 		games.forEach((game) =>{
 			const div = document.createElement('div');
-			div.className = 'col-10 col-sm-10 col-lg-5 col-xl-6  mt-4';
+			div.className = 'col-10 col-sm-10 col-lg-5 col-xl-6  mt-3';
 			div.innerHTML= `
 	
 						<div class="card card-cascade wider view overlay zoom">
@@ -25,7 +25,7 @@ class UI {
 								<h4 class="card-title"><strong>${game.title}</strong></h4>
 								<h5 class="blue-text pb-2"><strong>${game.availableConsole}</strong></h5>
 								<h6 class="font-weight-bold indigo-text py-2">$${game.price}</h6>
-								<button type="button" class="btn btn-danger btn-rounded delete" _id="${game._id}">Delete</button>
+								<button type="button" class="btn btn-danger btn-rounded delete" data-toggle="tooltip" title="Remove game, you will not have to confirm this action" _id="${game._id}">Delete</button>
 								<div class="card-footer text-muted text-center mt-4">
 						      		${format(game.created_at)}
 						    	</div>
@@ -62,6 +62,13 @@ class UI {
 		setTimeout(() => {
 	      	document.querySelector('.message').remove();
 	    }, secondsToRemove);	
+	}
+
+	renderExtInvalid(id, secondsToRemove) {
+		document.getElementById(id).classList.remove('d-none');
+		setTimeout(() => {
+	      	document.getElementById(id).classList.add('d-none');
+	    }, secondsToRemove)
 	}
 
 	async deleteGame(gameId) {
